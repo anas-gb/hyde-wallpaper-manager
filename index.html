@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyDE Wallpaper Manager</title>
+    <meta name="description" content="A premium, glassmorphic manager to easily add, list, delete, and set custom wallpapers in your active HyDE desktop environment.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    
+    <main class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <i class="fa-solid fa-wand-magic-sparkles logo-icon"></i>
+                <div class="title-meta">
+                    <h1 id="app-main-title">HyDE Wallpaper Manager</h1>
+                    <p class="subtitle">Customize your environment's wallpapers effortlessly</p>
+                </div>
+            </div>
+            <div class="theme-badge-container">
+                <span class="badge-label">Active Theme:</span>
+                <span id="active-theme-name" class="theme-badge">Loading...</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <div class="workspace-grid">
+            <!-- Left Side: Upload Control -->
+            <section class="control-panel glass-card">
+                <h2 class="section-title"><i class="fa-solid fa-cloud-arrow-up"></i> Add New Wallpaper</h2>
+                <p class="section-desc">Drag and drop an image or click to browse. Supported formats: JPG, PNG, WEBP, GIF.</p>
+                
+                <div id="drop-zone" class="drop-zone">
+                    <input type="file" id="file-input" accept="image/*" class="file-input" hidden>
+                    <div class="drop-zone-content">
+                        <i class="fa-regular fa-image upload-icon"></i>
+                        <span class="upload-text">Drag & Drop Image Here</span>
+                        <span class="upload-or">or</span>
+                        <button id="browse-btn" class="btn btn-secondary">Browse Files</button>
+                    </div>
+                </div>
+
+                <div id="upload-progress-container" class="upload-progress-container hidden">
+                    <div class="progress-info">
+                        <span id="upload-filename">image.jpg</span>
+                        <span id="upload-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="info-footer">
+                    <div class="info-item">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Wallpapers will be placed directly in your current theme's directory and processed by Wallbash.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Wallpapers Grid -->
+            <section class="gallery-panel glass-card">
+                <div class="gallery-header">
+                    <h2 class="section-title"><i class="fa-regular fa-images"></i> Wallpaper Gallery</h2>
+                    <span id="wallpaper-count" class="counter">0 Wallpapers</span>
+                </div>
+                
+                <div id="gallery-loading" class="gallery-loading">
+                    <div class="spinner"></div>
+                    <p>Scanning theme directories...</p>
+                </div>
+
+                <div id="gallery-empty" class="gallery-empty hidden">
+                    <i class="fa-regular fa-folder-open empty-icon"></i>
+                    <p>No wallpapers found in the active theme directory.</p>
+                    <p class="sub-empty">Add some images using the panel on the left!</p>
+                </div>
+
+                <div id="wallpapers-grid" class="wallpapers-grid hidden">
+                    <!-- Dynamic Wallpapers Cards -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
