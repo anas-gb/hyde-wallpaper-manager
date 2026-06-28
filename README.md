@@ -43,3 +43,4 @@ Make sure you have **HyDE** installed and configured on your system.
 * `style.css`: Clean, dark glassmorphic theme styling matching the Hyprland aesthetic.
 * `script.js`: Frontend logic for drag-and-drop, API communications, and rendering.
 * `launch.sh`: Port checker and execution script.
+<img width="1800" height="850" alt="260629_01h44m35s_screenshot" src="https://github.com/user-attachments/assets/2a62d61b-29cd-4c06-ba4b-f86f24f64867" />
